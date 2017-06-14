@@ -1,5 +1,5 @@
 {
-    "name": "akazorg/voyager-bread-builder",
+    "name": "akazorg/voyager-templates",
     "description": "Create BREAD views based on templates",
     "keywords": ["laravel", "voyager", "hooks"],
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "akazorg\\voyager-bread-builder\\": "src/"
+            "akazorg\\voyager-templates\\": "src/"
         }
     },
     "minimum-stability": "dev"
