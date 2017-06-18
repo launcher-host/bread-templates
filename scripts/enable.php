@@ -1,7 +1,4 @@
-#!/usr/bin/env php
 <?php
-
-file_put_contents(__DIR__.'/enable.log', 'enabled');
 
 use akazorg\VoyagerTemplates\Models\Templates;
 use TCG\Voyager\Models\DataRow;
@@ -112,6 +109,22 @@ use TCG\Voyager\Models\Role;
         ])->save();
     }
 
+    $dataRow = DataRow::where('data_type_id', $dataType->id)->where('field', 'name');
+    if (!$dataRow->exists) {
+        $dataRow->fill([
+            'type'         => 'text',
+            'display_name' => 'Name',
+            'required'     => 1,
+            'browse'       => 1,
+            'read'         => 1,
+            'edit'         => 1,
+            'add'          => 1,
+            'delete'       => 1,
+            'details'      => '',
+            'order'        => 2,
+        ])->save();
+    }
+
     $dataRow = DataRow::where('data_type_id', $dataType->id)->where('field', 'slug');
     if (!$dataRow->exists) {
         $dataRow->fill([
@@ -125,25 +138,9 @@ use TCG\Voyager\Models\Role;
             'delete'       => 1,
             'details'      => json_encode([
                 'slugify' => [
-                    'origin' => 'title',
+                    'origin' => 'name',
                 ],
             ]),
-            'order'        => 2,
-        ])->save();
-    }
-
-    $dataRow = DataRow::where('data_type_id', $dataType->id)->where('field', 'title');
-    if (!$dataRow->exists) {
-        $dataRow->fill([
-            'type'         => 'text',
-            'display_name' => 'Title',
-            'required'     => 1,
-            'browse'       => 1,
-            'read'         => 1,
-            'edit'         => 1,
-            'add'          => 1,
-            'delete'       => 1,
-            'details'      => '',
             'order'        => 3,
         ])->save();
     }
@@ -195,3 +192,6 @@ use TCG\Voyager\Models\Role;
             'order'        => 6,
         ])->save();
     }
+
+
+file_put_contents(__DIR__.'/enable.log', 'enabled');

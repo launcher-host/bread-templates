@@ -1,0 +1,4 @@
+vendor/
+build/
+scripts/*.log
+composer.lock

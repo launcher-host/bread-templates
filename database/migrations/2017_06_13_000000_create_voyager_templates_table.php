@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class VoyagerTemplatesTable extends Migration
+class CreateVoyagerTemplatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +15,7 @@ class VoyagerTemplatesTable extends Migration
     {
         Schema::create('voyager_templates', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->unique();
+            $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->text('view')->nullable();
             $table->timestamps();
