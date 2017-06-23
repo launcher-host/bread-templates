@@ -1,20 +1,5 @@
 {
   "provider": "akazorg\\VoyagerTemplates\\VoyagerTemplatesServiceProvider",
   "scripts": {
-    "install": [
-      "php artisan tinker {HOOKS}/voyager-templates/scripts/install.php"
-    ],
-    "uninstall": [
-      "php artisan tinker {HOOKS}/voyager-templates/scripts/uninstall.php"
-    ],
-    "update": [
-      "php artisan tinker {HOOKS}/voyager-templates/scripts/update.php"
-    ],
-    "enable": [
-      "php artisan tinker {HOOKS}/voyager-templates/scripts/enable.php"
-    ],
-    "disable": [
-      "php artisan tinker {HOOKS}/voyager-templates/scripts/disable.php"
-    ]
   }
 }

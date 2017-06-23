@@ -13,13 +13,15 @@ class CreateVoyagerTemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('voyager_templates', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->string('slug')->unique();
-            $table->text('view')->nullable();
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('voyager_templates')){
+            Schema::create('voyager_templates', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name')->unique();
+                $table->string('slug')->unique();
+                $table->text('view')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
