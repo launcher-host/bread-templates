@@ -71,9 +71,11 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
         $_path = __DIR__.'/..';
 
         $publishable = [
-            'views' => [
-                "{$_path}/resources/views/" => resource_path('views/vendor/voyager'),
-            ],
+            // we can publish views, but I would like to overwrite/reload voyager views
+            // ----------------------------------------------------------------------------
+            // 'views' => [
+            //     "{$_path}/resources/views/" => resource_path('views/vendor/voyager'),
+            // ],
             'migrations' => [
                 "{$_path}/database/migrations/" => database_path('migrations'),
             ],
