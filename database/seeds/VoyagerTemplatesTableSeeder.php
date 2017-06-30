@@ -34,51 +34,51 @@ class VoyagerTemplatesTableSeeder extends Seeder
         }
 
         $template = VoyagerTemplates::firstOrNew([
-            'name' => '2 Columns 8/4',
-            'slug' => '2-columns-8-4',
+            'name' => 'Columns 8/4',
+            'slug' => 'columns-8-4',
         ]);
         $template->fill([
-            'view' => implode('', [
-                '    <div class="row">',
-                '        <div class="col-sm-8 col-md-8 col-lg-8">{{ $r01_lf }}</div>',
-                '        <div class="col-sm-4 col-md-4 col-lg-4">{{ $r01_rg }}</div>',
-                '    </div>',
-                '    <div class="row">',
-                '        <div class="col-sm-8 col-md-8 col-lg-8">{{ $r02_lf }}</div>',
-                '        <div class="col-sm-4 col-md-4 col-lg-4">{{ $r02_rg }}</div>',
-                '    </div>',
+            'view' => implode("\n", [
+                '<div class="row">',
+                '    <div class="col-sm-8 col-md-8 col-lg-8">@stack("r01_lf")</div>',
+                '    <div class="col-sm-4 col-md-4 col-lg-4">@stack("r01_rg")</div>',
+                '</div>',
+                '<div class="row">',
+                '    <div class="col-sm-8 col-md-8 col-lg-8">@stack("r02_lf")</div>',
+                '    <div class="col-sm-4 col-md-4 col-lg-4">@stack("r02_rg")</div>',
+                '</div>',
                 ]),
         ])->save();
 
 
         $template = VoyagerTemplates::firstOrNew([
-            'name' => '2 Columns 6/6',
-            'slug' => '2-columns-6-6',
+            'name' => 'Columns 6/6',
+            'slug' => 'columns-6-6',
         ]);
         $template->fill([
-            'view' => implode('', [
-                '    <div class="row">',
-                '        <div class="col-sm-6 col-md-6 col-lg-6">{{ $r01_lf }}</div>',
-                '        <div class="col-sm-6 col-md-6 col-lg-6">{{ $r01_rg }}</div>',
-                '    </div>',
+            'view' => implode("\n", [
+                '<div class="row">',
+                '    <div class="col-sm-6 col-md-6 col-lg-6">@stack("lf")</div>',
+                '    <div class="col-sm-6 col-md-6 col-lg-6">@stack("rg")</div>',
+                '</div>',
                 ]),
         ])->save();
 
 
         $template = VoyagerTemplates::firstOrNew([
-            'name' => '2 Columns 4/8',
-            'slug' => '2-columns-4-8',
+            'name' => 'Columns 4/8',
+            'slug' => 'columns-4-8',
         ]);
         $template->fill([
-            'view' => implode('', [
-                '    <div class="row">',
-                '        <div class="col-sm-4 col-md-4 col-lg-4">{{ $vgr_tpl_r01_rg }}</div>',
-                '        <div class="col-sm-8 col-md-8 col-lg-8">{{ $vgr_tpl_r01_lf }}</div>',
-                '    </div>',
-                '    <div class="row">',
-                '        <div class="col-sm-4 col-md-4 col-lg-4">{{ $vgr_tpl_r02_rg }}</div>',
-                '        <div class="col-sm-8 col-md-8 col-lg-8">{{ $vgr_tpl_r02_lf }}</div>',
-                '    </div>',
+            'view' => implode("\n", [
+                '<div class="row">',
+                '    <div class="col-sm-4 col-md-4 col-lg-4">@stack("r01_rg")</div>',
+                '    <div class="col-sm-8 col-md-8 col-lg-8">@stack("r01_lf")</div>',
+                '</div>',
+                '<div class="row">',
+                '    <div class="col-sm-4 col-md-4 col-lg-4">@stack("r02_rg")</div>',
+                '    <div class="col-sm-8 col-md-8 col-lg-8">@stack("r02_lf")</div>',
+                '</div>',
                 ]),
         ])->save();
     }
