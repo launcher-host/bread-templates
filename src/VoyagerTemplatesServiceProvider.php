@@ -3,6 +3,7 @@
 namespace akazorg\VoyagerTemplates;
 
 use akazorg\VoyagerTemplates\Models\Templates as VoyagerTemplates;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
+use TCG\Voyager\Facades\Voyager as VoyagerFacade;
 
 class VoyagerTemplatesServiceProvider extends ServiceProvider
 {
@@ -33,31 +35,31 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
     {
         $this->registerPublishableResources();
 
-        $events->listen('voyager.admin.routing', [$this, 'addRoutes']);
+        // Add Routes
+        $events->listen('voyager.admin.routing', function ($aaa) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
+        });
 
-        // Load migrations
+        // Load Views
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'voyager');
+
+
+        // Load Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+
+        // Install if table not found
         if (!Schema::hasTable('voyager_templates')) {
-            Artisan::call('vendor:publish');
+            Artisan::call('vendor:publish', [
+                '--provider'=> 'akazorg\VoyagerTemplates\VoyagerTemplatesServiceProvider',
+                '--force' => true,
+            ]);
             Artisan::call('migrate');
             Artisan::call('db:seed', [
                 '--class' => 'VoyagerTemplatesTableSeeder',
                 '--force' => true,
             ]);
         }
-    }
-
-    /**
-     * Add Routes
-     */
-    public function addRoutes()
-    {
-        $hookController = '\\akazorg\\VoyagerTemplates\\Http\\Controllers\\VoyagerTemplatesController';
-
-        Route::resource('templates', $hookController);
-
-        Route::get('templates/create/', ['uses' => $hookController.'@create__', 'as' => 'templates.create']);
     }
 
 
@@ -69,9 +71,9 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
         $_path = __DIR__.'/..';
 
         $publishable = [
-            // 'voyager_assets' => [
-                // "{$_path}/resources/assets/" => base_path('resources/assets/'),
-            // ],
+            'views' => [
+                "{$_path}/resources/views/" => resource_path('views/vendor/voyager'),
+            ],
             'migrations' => [
                 "{$_path}/database/migrations/" => database_path('migrations'),
             ],
