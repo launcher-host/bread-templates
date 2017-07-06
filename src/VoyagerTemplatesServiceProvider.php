@@ -2,17 +2,14 @@
 
 namespace akazorg\VoyagerTemplates;
 
-use akazorg\VoyagerTemplates\Models\Templates as VoyagerTemplates;
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Events\Dispatcher;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use TCG\Voyager\Models\Permission;
-use TCG\Voyager\Models\Role;
-use TCG\Voyager\Facades\Voyager as VoyagerFacade;
+use Illuminate\Support\Facades\Blade;
+use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesServiceProvider extends ServiceProvider
 {
@@ -35,38 +32,52 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
     {
         $this->registerPublishableResources();
 
-        // Add Routes
-        $events->listen('voyager.admin.routing', function ($aaa) {
+        $events->listen('voyager.admin.routing', function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
         });
 
-        // Load Views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'voyager');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'templates');
 
-
-        // Load Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        $this->setupHook();
 
+        (new TemplatesManager)->registerTemplateHandler();
+    }
+
+    /**
+     * Setup the Hook.
+     *
+     * @return void
+     */
+    private function setupHook()
+    {
         // Install if table not found
-        if (!Schema::hasTable('voyager_templates')) {
+        // if (!Schema::hasTable('voyager_templates')) {
             Artisan::call('vendor:publish', [
                 '--provider'=> 'akazorg\VoyagerTemplates\VoyagerTemplatesServiceProvider',
                 '--force' => true,
             ]);
             Artisan::call('migrate');
             Artisan::call('db:seed', [
-                '--class' => 'VoyagerTemplatesTableSeeder',
+                '--class' => 'DatabaseSeeder',
                 '--force' => true,
             ]);
+        // }
+
+        // Make sure we have a folder for saving template files
+        $path = resource_path('views/vendor/voyager/templates');
+        if(! File::exists($path)) {
+            File::makeDirectory($path, 0775, true);
         }
     }
 
-
     /**
      * Register the publishable files.
+     *
+     * @return void
      */
-    private function registerPublishableResources()
+    protected function registerPublishableResources()
     {
         $_path = __DIR__.'/..';
 

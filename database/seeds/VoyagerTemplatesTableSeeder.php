@@ -1,39 +1,32 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use akazorg\VoyagerTemplates\Models\Templates as VoyagerTemplates;
-use TCG\Voyager\Facades\Voyager;
+use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
-use TCG\Voyager\Models\Menu;
-use TCG\Voyager\Models\MenuItem;
-use TCG\Voyager\Models\Role;
-use TCG\Voyager\Models\Permission;
+use Illuminate\Database\Seeder;
+// use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesTableSeeder extends Seeder
 {
     /**
-     * Auto generated seed file.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
         $this->seedVoyagerTemplates();
-        $this->seedMenuItem();
         $this->seedBREAD();
-        $this->addPermission();
     }
-
 
     public function seedVoyagerTemplates()
     {
         // Skip if already exists
-        if (VoyagerTemplates::first()) {
+        if (VoyagerTemplate::first()) {
             return;
         }
 
-        $template = VoyagerTemplates::firstOrNew([
+        $template = VoyagerTemplate::firstOrNew([
             'name' => 'Columns 8/4',
             'slug' => 'columns-8-4',
         ]);
@@ -47,11 +40,11 @@ class VoyagerTemplatesTableSeeder extends Seeder
                 '    <div class="col-sm-8 col-md-8 col-lg-8">@stack("r02_lf")</div>',
                 '    <div class="col-sm-4 col-md-4 col-lg-4">@stack("r02_rg")</div>',
                 '</div>',
-                ]),
+            ]),
         ])->save();
 
 
-        $template = VoyagerTemplates::firstOrNew([
+        $template = VoyagerTemplate::firstOrNew([
             'name' => 'Columns 6/6',
             'slug' => 'columns-6-6',
         ]);
@@ -61,11 +54,11 @@ class VoyagerTemplatesTableSeeder extends Seeder
                 '    <div class="col-sm-6 col-md-6 col-lg-6">@stack("lf")</div>',
                 '    <div class="col-sm-6 col-md-6 col-lg-6">@stack("rg")</div>',
                 '</div>',
-                ]),
+            ]),
         ])->save();
 
 
-        $template = VoyagerTemplates::firstOrNew([
+        $template = VoyagerTemplate::firstOrNew([
             'name' => 'Columns 4/8',
             'slug' => 'columns-4-8',
         ]);
@@ -79,33 +72,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
                 '    <div class="col-sm-4 col-md-4 col-lg-4">@stack("r02_rg")</div>',
                 '    <div class="col-sm-8 col-md-8 col-lg-8">@stack("r02_lf")</div>',
                 '</div>',
-                ]),
-        ])->save();
-    }
-
-    public function seedMenuItem()
-    {
-        $menu = Menu::where('name', 'admin')->firstOrFail();
-
-        $url  = '/admin/templates';
-
-        // Skip if already exists
-        if (MenuItem::where('menu_id', $menu->id)->where('url', $url)->first()) {
-            return;
-        }
-
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'url'     => $url,
-        ]);
-
-        $menuItem->fill([
-            'title'      => 'Templates',
-            'target'     => '_self',
-            'icon_class' => 'voyager-megaphone',
-            'color'      => null,
-            'parent_id'  => null,
-            'order'      => 98,
+            ]),
         ])->save();
     }
 
@@ -126,7 +93,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
             'display_name_singular' => 'Template',
             'display_name_plural'   => 'Templates',
             'icon'                  => 'voyager-news',
-            'model_name'            => 'akazorg\\VoyagerTemplates\\Models\\Templates',
+            'model_name'            => 'akazorg\\VoyagerTemplates\\Models\\Template',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',
@@ -226,26 +193,5 @@ class VoyagerTemplatesTableSeeder extends Seeder
         ]);
 
         $dataRow->fill($row)->save();
-    }
-
-    /**
-     * Assign Hook Permission
-     */
-    public function addPermission()
-    {
-        // Skip if already exists
-        if (Permission::where('table_name', 'voyager_templates')->first()) {
-            return;
-        }
-
-        Permission::generateFor('voyager_templates');
-
-        $role = Role::where('name', 'admin')->first();
-
-        if (!is_null($role)) {
-            $role->permissions()->attach(
-                Permission::where('table_name', 'voyager_templates')->pluck('id')->all()
-            );
-        }
     }
 }
