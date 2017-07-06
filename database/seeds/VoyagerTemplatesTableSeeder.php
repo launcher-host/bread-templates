@@ -4,7 +4,6 @@ use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 use Illuminate\Database\Seeder;
-// use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesTableSeeder extends Seeder
 {
