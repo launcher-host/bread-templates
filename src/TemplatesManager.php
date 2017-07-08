@@ -50,7 +50,7 @@ class TemplatesManager
             if (isset($opt->template->slug)) {
                 $slug = $opt->template->slug;
             }
-            if (isset($opt->template->stack)) {
+            if (!isset($opt->template->stack)) {
                 $fullWithRow = true;
             }
         }
