@@ -21,7 +21,7 @@
             $options = json_decode($row->details);
             $pushTo = isset($options->template->stack)
                     ? $options->template->stack
-                    : 'no-template-tag';
+                    : 'empty-stack';
             $display_options = isset($options->display) ? $options->display : NULL;
         @endphp
 
@@ -70,9 +70,9 @@
                 @endif
 
             <div class="page-content edit-add container-fluid">
-                @include("voyager::templates.$template")
+                @include("voyager::templates.".$template->slug)
                     <div class="row">
-                        <div class="col-md-12">@stack("no-template-tag")</div>
+                        <div class="col-md-12">@stack("empty-stack")</div>
                     </div>
 
                     <div class="panel-footer">

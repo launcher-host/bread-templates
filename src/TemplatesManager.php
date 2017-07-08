@@ -29,34 +29,42 @@ class TemplatesManager
      */
     protected static function handle($view, &$name, &$params)
     {
-        // Determine the method to call
-        $method = ($view === 'read')
-                ? 'readRows'
-                : isset($params['dataTypeContent']->id) ? 'editRows' : 'addRows';
+        // Determine the method to call (read/addRows/editRows)
+        $method = ($view === 'read') ? 'readRows' : isset($params['dataTypeContent']->id) ? 'editRows' : 'addRows';
 
-        // Load dataRows
+        // Load dataRows, it will be returned to the view
         $params['dataRows'] = $params['dataType']->{$method};
 
-        // Return the template slug if found on DataRows
-        //
-        $_template = false;
-        $params['dataRows']->first(function ($dataRow) use (&$_template) {
-            $_row = json_decode($dataRow->details);
-            if (isset($_row->template->slug)) {
-                $_template = $_row->template->slug;
-                return;
-            }
-        });
+        /**
+         * Check if template exist on the dataRows.
+         */
+        // Template slug
+        $slug = false;
 
-        // BreadTemplate is active
-        if ($_template) {
+        // Find for any row with an empty stack, to help build the UI.
+        $fullWithRow = false;
+
+        // This is ugly, but works :O
+        foreach ($params['dataRows'] as $row) {
+            $opt = json_decode($row->details);
+            if (isset($opt->template->slug)) {
+                $slug = $opt->template->slug;
+            }
+            if (isset($opt->template->stack)) {
+                $fullWithRow = true;
+            }
+        }
+        if ($slug) {
             $name = 'templates::bread.'.$view;
-            $params['template'] = $_template;
+            $params['template'] =  (object) [
+                'slug' => $slug,
+                'fullWithRow' => $fullWithRow,
+            ];
         }
     }
 
     /**
-     * Delete a single template file from cached.
+     * Delete a single template file from cache.
      *
      * @param string  $name
      * @return void
@@ -83,8 +91,9 @@ class TemplatesManager
             $_file = self::getPath($template->slug);
 
             // ******************************************************
-            // We should delete a template file when this is updated/deleted.
-            // This way we skip a DB call for checking if the template was modified.
+            // When we add/edit/delete a template, the cache file should be deleted.
+            // The next time it's requested, it will be generated, and this we skip
+            // the DB query for checking if the template was modified.
             // ******************************************************
             if (!File::exists($_file) || $template->updated_at->timestamp > File::lastModified($_file)) {
                 File::put($_file, $template->view);

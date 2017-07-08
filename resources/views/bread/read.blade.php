@@ -27,9 +27,8 @@
             $rowDetails = json_decode($row->details);
             $pushTo = isset($rowDetails->template->stack)
                     ? $rowDetails->template->stack
-                    : 'no-template-tag';
+                    : 'empty-stack';
         @endphp
-
         @push($pushTo)
             <div class="panel-heading" style="border-bottom:0;">
                 <h3 class="panel-title">{{ $row->display_name }}</h3>
@@ -80,22 +79,19 @@
                     @include('voyager::multilingual.input-hidden-bread-read')
                     <p>{{ $dataTypeContent->{$row->field} }}</p>
                 @endif
-
-                @if(!$loop->last)
-                    {{-- <hr style="margin:0;"> --}}
-                @endif
             </div>
         @endpush
     @endforeach
 
-
     <div class="page-content read container-fluid">
-        @include("voyager::templates.$template")
-        <div class="panel panel-bordered" style="padding-bottom:5px;">
-            <div class="row">
-                <div class="col-md-12">@stack("no-template-tag")</div>
+        @include("voyager::templates.".$template->slug)
+        @if ($template->fullWithRow)
+            <div class="panel panel-bordered">
+                <div class="row">
+                    <div class="col-md-12">@stack("empty-stack")</div>
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 @stop
 

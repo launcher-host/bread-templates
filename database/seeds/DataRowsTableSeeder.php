@@ -10,7 +10,7 @@ use TCG\Voyager\Models\Page;
 class DataRowsTableSeeder extends Seeder
 {
     /**
-     * Auto generated seed file.
+     * Will change Pages dataType in order to use templates.
      *
      * @return void
      */
@@ -26,30 +26,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'title');
         if ($dataRow->exists) {
             $dataRow->fill([
-                'details' => json_encode([
-                    'template' => [
-                        'slug'  => 'columns-8-4',
-                        'stack' => 'r01_lf',
-                    ],
-                ]),
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($dataTypeID, 'excerpt');
-        if ($dataRow->exists) {
-            $dataRow->fill([
-                'details' => json_encode([
-                    'template' => [
-                        'slug'  => 'columns-8-4',
-                        'stack' => 'r01_lf',
-                    ],
-                ]),
-            ])->save();
-        }
-
-        $dataRow = $this->dataRow($dataTypeID, 'body');
-        if ($dataRow->exists) {
-            $dataRow->fill([
+                'order'   => 3,
                 'details' => json_encode([
                     'template' => [
                         'slug'  => 'columns-8-4',
@@ -62,6 +39,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'slug');
         if ($dataRow->exists) {
             $dataRow->fill([
+                'order' => 4,
                 'details' => json_encode([
                     'slugify' => [
                         'origin' => 'title',
@@ -77,10 +55,11 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'meta_description');
         if ($dataRow->exists) {
             $dataRow->fill([
+                'order'   => 5,
                 'details' => json_encode([
                     'template' => [
                         'slug'  => 'columns-8-4',
-                        'stack' => 'r02_rg',
+                        'stack' => 'r01_lf',
                     ],
                 ]),
             ])->save();
@@ -89,10 +68,24 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'meta_keywords');
         if ($dataRow->exists) {
             $dataRow->fill([
+                'order'   => 6,
                 'details' => json_encode([
                     'template' => [
                         'slug'  => 'columns-8-4',
-                        'stack' => 'r02_rg',
+                        'stack' => 'r01_lf',
+                    ],
+                ]),
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($dataTypeID, 'excerpt');
+        if ($dataRow->exists) {
+            $dataRow->fill([
+                'order'   => 7,
+                'details' => json_encode([
+                    'template' => [
+                        'slug'  => 'columns-8-4',
+                        'stack' => 'r02_lf',
                     ],
                 ]),
             ])->save();
@@ -101,6 +94,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'status');
         if ($dataRow->exists) {
             $dataRow->fill([
+                'order'   => 8,
                 'details' => json_encode([
                     'default' => 'INACTIVE',
                     'options' => [
@@ -118,6 +112,20 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'created_at');
         if ($dataRow->exists) {
             $dataRow->fill([
+                'order'   => 9,
+                'details' => json_encode([
+                    'template' => [
+                        'slug'  => 'columns-8-4',
+                        'stack' => 'r01_rg',
+                    ],
+                ]),
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($dataTypeID, 'image');
+        if ($dataRow->exists) {
+            $dataRow->fill([
+                'order'   => 10,
                 'details' => json_encode([
                     'template' => [
                         'slug'  => 'columns-8-4',
@@ -127,13 +135,13 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($dataTypeID, 'image');
+        $dataRow = $this->dataRow($dataTypeID, 'body');
         if ($dataRow->exists) {
             $dataRow->fill([
+                'order'   => 11,
                 'details' => json_encode([
                     'template' => [
                         'slug'  => 'columns-8-4',
-                        'stack' => 'r02_lf',
                     ],
                 ]),
             ])->save();
