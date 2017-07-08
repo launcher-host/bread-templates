@@ -17,7 +17,6 @@
 @section('content')
 
     @foreach($dataRows as $row)
-
         @php
             $options = json_decode($row->details);
             $pushTo = isset($options->template->stack)
@@ -41,9 +40,7 @@
     @endforeach
 
 
-
     <div class="panel panel-bordered">
-
         <div class="panel-heading">
             <h3 class="panel-title">@if(isset($dataTypeContent->id)){{ __('voyager.generic.edit') }}@else{{ __('voyager.generic.add_new') }}@endif {{ $dataType->display_name_singular }}</h3>
         </div>

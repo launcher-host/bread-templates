@@ -53,7 +53,7 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
     private function setupHook()
     {
         // Install if table not found
-        // if (!Schema::hasTable('voyager_templates')) {
+        if (!Schema::hasTable('voyager_templates')) {
             Artisan::call('vendor:publish', [
                 '--provider'=> 'akazorg\VoyagerTemplates\VoyagerTemplatesServiceProvider',
                 '--force' => true,
@@ -63,7 +63,7 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
                 '--class' => 'DatabaseSeeder',
                 '--force' => true,
             ]);
-        // }
+        }
 
         // Make sure we have a folder for saving template files
         $path = resource_path('views/vendor/voyager/templates');
