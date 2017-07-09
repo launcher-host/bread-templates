@@ -93,9 +93,6 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
             'seeds' => [
                 "{$_path}/database/seeds/" => database_path('seeds'),
             ],
-            'lang' => [
-                "{$_path}/resources/lang/" => base_path('resources/lang/'),
-            ],
         ];
 
         foreach ($publishable as $group => $paths) {

@@ -3,6 +3,7 @@
 namespace akazorg\VoyagerTemplates\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use akazorg\VoyagerTemplates\TemplatesManager;
 
 class Template extends Model
 {
@@ -13,4 +14,15 @@ class Template extends Model
         'slug',
         'view',
     ];
+
+    public static function boot()
+    {
+        static::saved(function (Template $template) {
+            TemplatesManager::templateModified($template);
+        });
+
+        static::deleted(function (Template $template) {
+            TemplatesManager::templateModified($template);
+        });
+    }
 }

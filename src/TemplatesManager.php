@@ -4,7 +4,7 @@ namespace akazorg\VoyagerTemplates;
 
 use Illuminate\Support\Facades\File;
 use TCG\Voyager\Facades\Voyager;
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
+use akazorg\VoyagerTemplates\Models\Template;
 
 class TemplatesManager
 {
@@ -15,6 +15,7 @@ class TemplatesManager
     {
         self::checkCache();
 
+        // Voyager Event when returning a view
         foreach (['read', 'edit-add'] as $view) {
             Voyager::onLoadingView('voyager::bread.'.$view,
                 function (&$name, array &$params) use ($view) {
@@ -25,7 +26,7 @@ class TemplatesManager
     }
 
     /**
-     * Handler
+     * Handle Template Request
      */
     protected static function handle($view, &$name, &$params)
     {
@@ -38,7 +39,6 @@ class TemplatesManager
         /**
          * Check if template exist on the dataRows.
          */
-        // Template slug
         $slug = false;
 
         // Find for any row with an empty stack, to help build the UI.
@@ -64,14 +64,14 @@ class TemplatesManager
     }
 
     /**
-     * Delete a single template file from cache.
+     * When a template is modified (saved/deleted) we delete the cache file.
      *
-     * @param string  $name
+     * @param Template  $template
      * @return void
      */
-    public static function deleteFile($name)
+    public static function templateModified(Template $template)
     {
-        $_file = self::getPath($name);
+        $_file = self::getPath($template->slug);
 
         if (File::exists($_file)) {
             File::delete($_file);
@@ -85,17 +85,12 @@ class TemplatesManager
      */
     public static function checkCache()
     {
-        $templates = VoyagerTemplate::all();
+        $templates = Template::all();
 
         foreach ($templates as $template) {
             $_file = self::getPath($template->slug);
 
-            // ******************************************************
-            // When we add/edit/delete a template, the cache file should be deleted.
-            // The next time it's requested, it will be generated, and this we skip
-            // the DB query for checking if the template was modified.
-            // ******************************************************
-            if (!File::exists($_file) || $template->updated_at->timestamp > File::lastModified($_file)) {
+            if (! File::exists($_file)) {
                 File::put($_file, $template->view);
             }
         }
