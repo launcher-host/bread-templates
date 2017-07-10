@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
-use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Models\Page;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
-use TCG\Voyager\Models\Page;
+use TCG\Voyager\Facades\Voyager;
+use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 
 class DataRowsTableSeeder extends Seeder
 {

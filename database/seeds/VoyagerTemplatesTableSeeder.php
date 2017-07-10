@@ -1,9 +1,9 @@
 <?php
 
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 use Illuminate\Database\Seeder;
+use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 
 class VoyagerTemplatesTableSeeder extends Seeder
 {

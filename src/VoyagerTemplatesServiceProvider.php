@@ -2,6 +2,7 @@
 
 namespace akazorg\VoyagerTemplates;
 
+use TCG\Voyager\Facades\Voyager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\File;
@@ -9,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
-use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesServiceProvider extends ServiceProvider
 {

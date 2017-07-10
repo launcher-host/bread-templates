@@ -2,8 +2,8 @@
 
 namespace akazorg\VoyagerTemplates;
 
-use Illuminate\Support\Facades\File;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\File;
 use akazorg\VoyagerTemplates\Models\Template;
 
 class TemplatesManager

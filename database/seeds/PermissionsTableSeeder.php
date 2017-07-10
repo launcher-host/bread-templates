@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Models\Role;
 use TCG\Voyager\Models\Permission;
