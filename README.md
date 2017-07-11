@@ -1,4 +1,12 @@
 # Voyager Templates
+<p>
+<a href="https://travis-ci.org/akazorg/voyager-templates"><img src="https://travis-ci.org/akazorg/voyager-templates.svg?branch=dev-master" alt="Build Status"></a>
+<a href="https://packagist.org/packages/akazorg/voyager-templates"><img src="https://poser.pugx.org/akazorg/voyager-templates/downloads.svg?format=flat" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/akazorg/voyager-templates"><img src="https://poser.pugx.org/akazorg/voyager-templates/v/stable.svg?format=flat" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/akazorg/voyager-templates"><img src="https://poser.pugx.org/akazorg/voyager-templates/license.svg?format=flat" alt="License"></a>
+</p>
+
+Made by [Bruno Torrinha](http://torrinha.com)
 
 This package let you use templates with BREAD views. It uses Laravel [Blade
 Stacks](https://laravel.com/docs/5.4/blade#stacks) to define each of the template sections where
