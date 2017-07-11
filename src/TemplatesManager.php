@@ -20,9 +20,9 @@ class TemplatesManager
      */
     public function registerTemplateHandler()
     {
-        $this->checkCache();
+        $this->ensureCacheFolder();
 
-        $this->ensureFolder();
+        $this->checkCache();
 
         /*
          * Event listener for Voyager view request
@@ -131,7 +131,7 @@ class TemplatesManager
      *
      * @return void
      */
-    private function ensureFolder()
+    private function ensureCacheFolder()
     {
         if (!File::exists($this->path)) {
             File::makeDirectory($this->path, 0775, true);
