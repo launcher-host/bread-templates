@@ -15,7 +15,6 @@
 @stop
 
 @section('content')
-
     @foreach($dataRows as $row)
         @php
             $options = json_decode($row->details);
@@ -26,7 +25,7 @@
         @endphp
 
         @push($pushTo)
-            <div class="form-group @if($row->type == 'hidden') hidden @endif @if(isset($display_options->width)){{ 'col-md-' . $display_options->width }}@else{{ 'col-md-12' }}@endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+            <div class="form-group @if($row->type == 'hidden') hidden @endif">
                 {{ $row->slugify }}
                 <label for="name">{{ $row->display_name }}</label>
                 @include('voyager::multilingual.input-hidden-bread-edit-add')
@@ -40,11 +39,7 @@
     @endforeach
 
 
-    <div class="panel panel-bordered">
-        <div class="panel-heading">
-            <h3 class="panel-title">@if(isset($dataTypeContent->id)){{ __('voyager.generic.edit') }}@else{{ __('voyager.generic.add_new') }}@endif {{ $dataType->display_name_singular }}</h3>
-        </div>
-        <!-- /.box-header -->
+    <div class="page-content container-fluid">
         <!-- form start -->
         <form role="form"
                 class="form-edit-add"
@@ -58,38 +53,42 @@
             <!-- CSRF TOKEN -->
             {{ csrf_field() }}
 
-            <div class="panel-body">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+            @if (count($errors) > 0)
+                <div class="row"><div class="col-md-12">
+                    <div class="panel">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
-                @endif
+                </div></div>
+            @endif
 
-            <div class="page-content edit-add container-fluid">
-                @include("voyager::templates.".$template->slug)
+            {{-- Template --}}
+            @include("voyager::templates.".$template->slug)
+            @if ($template->fullWithRow)
+                <div class="panel">
                     <div class="row">
                         <div class="col-md-12">@stack("empty-stack")</div>
                     </div>
-
-                    <div class="panel-footer">
-                        <button type="submit" class="btn btn-primary save">{{ __('voyager.generic.save') }}</button>
-                    </div>
-                </form>
-
-                <iframe id="form_target" name="form_target" style="display:none"></iframe>
-                <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-                        enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
-                    <input name="image" id="upload_file" type="file"
-                             onchange="$('#my_form').submit();this.value='';">
-                    <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
-                    {{ csrf_field() }}
-                </form>
+                </div>
+            @endif
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary save">{{ __('voyager.generic.save') }}</button>
             </div>
-        </div>
+        </form>
+
+        <iframe id="form_target" name="form_target" style="display:none"></iframe>
+        <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
+                enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+            <input name="image" id="upload_file" type="file"
+                     onchange="$('#my_form').submit();this.value='';">
+            <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
+            {{ csrf_field() }}
+        </form>
     </div>
 
     <div class="modal fade modal-danger" id="confirm_delete_modal">
