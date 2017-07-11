@@ -70,7 +70,7 @@
             {{-- Template --}}
             @include("voyager::templates.".$template->slug)
             @if ($template->fullWithRow)
-                <div class="panel">
+                <div class="panel panel-body">
                     <div class="row">
                         <div class="col-md-12">@stack("empty-stack")</div>
                     </div>
