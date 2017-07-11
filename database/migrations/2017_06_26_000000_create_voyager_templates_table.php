@@ -13,7 +13,7 @@ class CreateVoyagerTemplatesTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('voyager_templates')){
+        if (!Schema::hasTable('voyager_templates')) {
             Schema::create('voyager_templates', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name')->unique();
