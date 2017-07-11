@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "larapack/hooks": "^0.1.1",
+        "larapack/hooks": "dev-master as 0.1.x",
         "larapack/voyager-hooks": "^0.1.1"
     },
     "require-dev": {
