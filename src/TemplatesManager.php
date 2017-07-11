@@ -37,7 +37,7 @@ class TemplatesManager
         $params['dataRows'] = $params['dataType']->{$method};
 
         /**
-         * Check if template exist on the dataRows.
+         * Check for a template defined on the dataRows.
          */
         $slug = false;
 

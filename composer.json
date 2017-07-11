@@ -29,7 +29,7 @@
                     "akazorg\\voyager-templates\\VoyagerTemplatesServiceProvider"
               ],
               "aliases": {
-                    "Test": "voyager-templates\\TestAlias"
+                    "Templates": "voyager-templates\\TestAlias"
               }
         }
     }

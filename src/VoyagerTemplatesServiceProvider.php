@@ -2,6 +2,7 @@
 
 namespace akazorg\VoyagerTemplates;
 
+use akazorg\VoyagerTemplates\Providers\HookEventsServiceProvider;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -20,7 +21,12 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // $this->app->singleton('template', function (Container $app) {
+        //     return new TemplatesManager($app);
+        // });
+        // $this->app->alias('template', TemplatesManager::class);
+
+        $this->app->register(HookEventsServiceProvider::class);
     }
 
     /**

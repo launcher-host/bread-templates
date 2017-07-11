@@ -17,12 +17,10 @@ class Template extends Model
 
     public static function boot()
     {
-        static::saved(function (Template $template) {
-            TemplatesManager::templateModified($template);
-        });
-
-        static::deleted(function (Template $template) {
-            TemplatesManager::templateModified($template);
-        });
+        foreach (['saved', 'deleted'] as $action) {
+            static::{$action}(function (Template $template) {
+                TemplatesManager::templateModified($template);
+            });
+        }
     }
 }

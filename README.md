@@ -45,8 +45,8 @@ View:
 # Usage
 
 #### 1. Choose a Template
-When you access Templates, by clicking the menu, you will see 3 templates as default, you may
-add or modify any of them. Remember the template `slug`, it's used to set up the BREAD item.
+When you access Templates, by clicking the menu, you will see 3 templates as default, you can
+add or modify any of them.
 
 
 #### 2. Configure BREAD

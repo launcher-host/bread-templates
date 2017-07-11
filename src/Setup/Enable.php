@@ -1,21 +1,11 @@
 <?php
 
-namespace akazorg\VoyagerTemplates\Listeners;
+namespace akazorg\VoyagerTemplates\Setup;
 
 use Larapack\Hooks\Events\EnablingHook;
 
-class EnableHook
+class Enable
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *

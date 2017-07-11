@@ -1,21 +1,11 @@
 <?php
 
-namespace akazorg\VoyagerTemplates\Listeners;
+namespace akazorg\VoyagerTemplates\Setup;
 
 use Larapack\Hooks\Events\UninstallingHook;
 
-class UninstallHook
+class Uninstall
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
