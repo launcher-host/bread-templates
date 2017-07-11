@@ -15,6 +15,6 @@ class Uninstall
      */
     public function handle(UninstallingHook $event)
     {
-        // Access hook $event->hook...
+        dd('UninstallingHook', $event);
     }
 }

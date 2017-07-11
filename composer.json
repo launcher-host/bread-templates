@@ -22,6 +22,11 @@
             "akazorg\\voyager-templates\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "akazorg\\voyager-templates\\Tests\\": "tests/"
+        }
+    },
     "minimum-stability": "dev",
     "extra": {
         "hook": {

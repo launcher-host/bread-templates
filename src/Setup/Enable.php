@@ -15,6 +15,6 @@ class Enable
      */
     public function handle(EnablingHook $event)
     {
-        // Access hook $event->hook...
+        dd('EnablingHook', $event);
     }
 }

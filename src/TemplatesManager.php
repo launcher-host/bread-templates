@@ -8,12 +8,21 @@ use TCG\Voyager\Facades\Voyager;
 
 class TemplatesManager
 {
+    protected $path = '';
+
+    public function __construct()
+    {
+        $this->path = resource_path('views/vendor/voyager/templates');
+    }
+
     /**
      * Register Template Handler.
      */
     public static function registerTemplateHandler()
     {
         self::checkCache();
+
+        self::ensureFolder();
 
         // Voyager Event when returning a view
         foreach (['read', 'edit-add'] as $view) {
@@ -113,5 +122,17 @@ class TemplatesManager
     private static function getPath($name)
     {
         return resource_path('views/vendor/voyager/templates/').$name.'.blade.php';
+    }
+
+    /**
+     * Ensure the cache folder exists.
+     *
+     * @return void
+     */
+    private static function ensureFolder()
+    {
+        if (!File::exists($path)) {
+            File::makeDirectory($path, 0775, true);
+        }
     }
 }

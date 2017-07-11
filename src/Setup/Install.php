@@ -15,6 +15,6 @@ class Install
      */
     public function handle(InstallingHook $event)
     {
-        dd($event);
+        dd('InstallingHook', $event);
     }
 }

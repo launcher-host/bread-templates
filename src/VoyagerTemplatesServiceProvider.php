@@ -67,12 +67,6 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
                 '--force' => true,
             ]);
         }
-
-        // Make sure we have a folder for saving template files
-        $path = resource_path('views/vendor/voyager/templates');
-        if (!File::exists($path)) {
-            File::makeDirectory($path, 0775, true);
-        }
     }
 
     /**
