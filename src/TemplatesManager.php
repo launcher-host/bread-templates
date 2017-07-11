@@ -18,17 +18,19 @@ class TemplatesManager
     /**
      * Register Template Handler.
      */
-    public static function registerTemplateHandler()
+    public function registerTemplateHandler()
     {
-        self::checkCache();
+        $this->checkCache();
 
-        self::ensureFolder();
+        $this->ensureFolder();
 
-        // Voyager Event when returning a view
+        /*
+         * Event listener for Voyager view request
+         */
         foreach (['read', 'edit-add'] as $view) {
             Voyager::onLoadingView('voyager::bread.'.$view,
                 function (&$name, array &$params) use ($view) {
-                    self::handle($view, $name, $params);
+                    $this->handle($view, $name, $params);
                 }
             );
         }
@@ -43,7 +45,7 @@ class TemplatesManager
      *
      * @return void
      */
-    protected static function handle($view, &$name, &$params)
+    protected function handle($view, &$name, &$params)
     {
         // Determine the method to call (read/addRows/editRows)
         $method = ($view === 'read') ? 'readRows' : isset($params['dataTypeContent']->id) ? 'editRows' : 'addRows';
@@ -87,7 +89,7 @@ class TemplatesManager
      */
     public static function templateModified(Template $template)
     {
-        $_file = self::getPath($template->slug);
+        $_file = $this->getPath($template->slug);
 
         if (File::exists($_file)) {
             File::delete($_file);
@@ -99,12 +101,12 @@ class TemplatesManager
      *
      * @return void
      */
-    public static function checkCache()
+    public function checkCache()
     {
         $templates = Template::all();
 
         foreach ($templates as $template) {
-            $_file = self::getPath($template->slug);
+            $_file = $this->getPath($template->slug);
 
             if (!File::exists($_file)) {
                 File::put($_file, $template->view);
@@ -119,7 +121,7 @@ class TemplatesManager
      *
      * @return string
      */
-    private static function getPath($name)
+    private function getPath($name)
     {
         return resource_path('views/vendor/voyager/templates/').$name.'.blade.php';
     }
@@ -129,10 +131,10 @@ class TemplatesManager
      *
      * @return void
      */
-    private static function ensureFolder()
+    private function ensureFolder()
     {
-        if (!File::exists($path)) {
-            File::makeDirectory($path, 0775, true);
+        if (!File::exists($this->path)) {
+            File::makeDirectory($this->path, 0775, true);
         }
     }
 }
