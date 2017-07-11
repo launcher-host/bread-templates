@@ -28,9 +28,9 @@ class TemplatesManager
     /**
      * Handle Template Request.
      *
-     * @param string $view Requested view
-     * @param string &$name Name of the view to be opened
-     * @param array &$params View parameters
+     * @param string $view    Requested view
+     * @param string &$name   Name of the view to be opened
+     * @param array  &$params View parameters
      *
      * @return void
      */
@@ -62,8 +62,8 @@ class TemplatesManager
         }
         if ($slug) {
             $name = 'templates::bread.'.$view;
-            $params['template'] =  (object) [
-                'slug' => $slug,
+            $params['template'] = (object) [
+                'slug'        => $slug,
                 'fullWithRow' => $fullWithRow,
             ];
         }
@@ -73,6 +73,7 @@ class TemplatesManager
      * When a template is modified (saved/deleted) we delete the cache file.
      *
      * @param Template $template
+     *
      * @return void
      */
     public static function templateModified(Template $template)
@@ -105,7 +106,7 @@ class TemplatesManager
     /**
      * Get view file path.
      *
-     * @param string  $name
+     * @param string $name
      *
      * @return string
      */
