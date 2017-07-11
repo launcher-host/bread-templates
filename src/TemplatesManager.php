@@ -2,14 +2,14 @@
 
 namespace akazorg\VoyagerTemplates;
 
-use TCG\Voyager\Facades\Voyager;
-use Illuminate\Support\Facades\File;
 use akazorg\VoyagerTemplates\Models\Template;
+use Illuminate\Support\Facades\File;
+use TCG\Voyager\Facades\Voyager;
 
 class TemplatesManager
 {
     /**
-     * Register Template Handler
+     * Register Template Handler.
      */
     public static function registerTemplateHandler()
     {
@@ -26,7 +26,13 @@ class TemplatesManager
     }
 
     /**
-     * Handle Template Request
+     * Handle Template Request.
+     *
+     * @param string $view Requested view
+     * @param string &$name Name of the view to be opened
+     * @param array &$params View parameters
+     *
+     * @return void
      */
     protected static function handle($view, &$name, &$params)
     {
@@ -66,7 +72,7 @@ class TemplatesManager
     /**
      * When a template is modified (saved/deleted) we delete the cache file.
      *
-     * @param Template  $template
+     * @param Template $template
      * @return void
      */
     public static function templateModified(Template $template)
@@ -90,7 +96,7 @@ class TemplatesManager
         foreach ($templates as $template) {
             $_file = self::getPath($template->slug);
 
-            if (! File::exists($_file)) {
+            if (!File::exists($_file)) {
                 File::put($_file, $template->view);
             }
         }
@@ -100,6 +106,7 @@ class TemplatesManager
      * Get view file path.
      *
      * @param string  $name
+     *
      * @return string
      */
     private static function getPath($name)

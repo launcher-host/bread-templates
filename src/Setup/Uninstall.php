@@ -9,7 +9,8 @@ class Uninstall
     /**
      * Handle the event.
      *
-     * @param  UninstallingHook  $event
+     * @param UninstallingHook $event
+     *
      * @return void
      */
     public function handle(UninstallingHook $event)

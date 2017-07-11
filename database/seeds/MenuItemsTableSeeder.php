@@ -15,7 +15,7 @@ class MenuItemsTableSeeder extends Seeder
     {
         $menu = Menu::where('name', 'admin')->firstOrFail();
 
-        $url  = '/admin/templates';
+        $url = '/admin/templates';
 
         // Skip if already exists
         if (MenuItem::where('menu_id', $menu->id)->where('url', $url)->first()) {

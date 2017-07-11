@@ -9,7 +9,8 @@ class Install
     /**
      * Handle the event.
      *
-     * @param  InstallingHook  $event
+     * @param InstallingHook $event
+     *
      * @return void
      */
     public function handle(InstallingHook $event)

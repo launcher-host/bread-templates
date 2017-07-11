@@ -3,14 +3,11 @@
 namespace akazorg\VoyagerTemplates;
 
 use akazorg\VoyagerTemplates\Providers\HookEventsServiceProvider;
-use TCG\Voyager\Facades\Voyager;
 use Illuminate\Events\Dispatcher;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesServiceProvider extends ServiceProvider
 {
@@ -48,7 +45,7 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
 
         $this->setupHook();
 
-        (new TemplatesManager)->registerTemplateHandler();
+        (new TemplatesManager())->registerTemplateHandler();
     }
 
     /**
@@ -61,8 +58,8 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
         // Install if table not found
         if (!Schema::hasTable('voyager_templates')) {
             Artisan::call('vendor:publish', [
-                '--provider'=> 'akazorg\VoyagerTemplates\VoyagerTemplatesServiceProvider',
-                '--force' => true,
+                '--provider' => 'akazorg\VoyagerTemplates\VoyagerTemplatesServiceProvider',
+                '--force'    => true,
             ]);
             Artisan::call('migrate');
             Artisan::call('db:seed', [
@@ -73,7 +70,7 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
 
         // Make sure we have a folder for saving template files
         $path = resource_path('views/vendor/voyager/templates');
-        if(! File::exists($path)) {
+        if (!File::exists($path)) {
             File::makeDirectory($path, 0775, true);
         }
     }

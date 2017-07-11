@@ -1,9 +1,9 @@
 <?php
 
+use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
+use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
-use Illuminate\Database\Seeder;
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 
 class VoyagerTemplatesTableSeeder extends Seeder
 {
@@ -50,7 +50,6 @@ class VoyagerTemplatesTableSeeder extends Seeder
             ]),
         ])->save();
 
-
         $template = VoyagerTemplate::firstOrNew([
             'name' => 'Columns 6/6',
             'slug' => 'columns-6-6',
@@ -67,7 +66,6 @@ class VoyagerTemplatesTableSeeder extends Seeder
                 '</div>',
             ]),
         ])->save();
-
 
         $template = VoyagerTemplate::firstOrNew([
             'name' => 'Columns 4/8',
@@ -96,7 +94,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
     }
 
     /**
-     * Add BREAD
+     * Add BREAD.
      */
     public function seedBREAD()
     {
@@ -118,7 +116,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
             'description'           => '',
         ])->save();
 
-        /**
+        /*
          * Add DataRows
          */
         $this->_addDataRow($dataType->id, 'id', [
@@ -204,11 +202,11 @@ class VoyagerTemplatesTableSeeder extends Seeder
         ]);
     }
 
-    public function _addDataRow($dataTypeId, $field, Array $row)
+    public function _addDataRow($dataTypeId, $field, array $row)
     {
         $dataRow = DataRow::firstOrNew([
             'data_type_id' => $dataTypeId,
-            'field'        => $field
+            'field'        => $field,
         ]);
 
         $dataRow->fill($row)->save();

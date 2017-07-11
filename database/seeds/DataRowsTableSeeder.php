@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Page;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
-use TCG\Voyager\Facades\Voyager;
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
 
 class DataRowsTableSeeder extends Seeder
 {
@@ -39,7 +36,7 @@ class DataRowsTableSeeder extends Seeder
         $dataRow = $this->dataRow($dataTypeID, 'slug');
         if ($dataRow->exists) {
             $dataRow->fill([
-                'order' => 4,
+                'order'   => 4,
                 'details' => json_encode([
                     'slugify' => [
                         'origin' => 'title',

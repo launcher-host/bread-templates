@@ -9,7 +9,8 @@ class Enable
     /**
      * Handle the event.
      *
-     * @param  EnablingHook  $event
+     * @param EnablingHook $event
+     *
      * @return void
      */
     public function handle(EnablingHook $event)

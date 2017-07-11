@@ -2,8 +2,8 @@
 
 namespace akazorg\VoyagerTemplates\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use akazorg\VoyagerTemplates\TemplatesManager;
+use Illuminate\Database\Eloquent\Model;
 
 class Template extends Model
 {

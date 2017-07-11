@@ -9,7 +9,8 @@ class Disable
     /**
      * Handle the event.
      *
-     * @param  DisablingHook  $event
+     * @param DisablingHook $event
+     *
      * @return void
      */
     public function handle(DisablingHook $event)
