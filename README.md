@@ -1,6 +1,7 @@
 # Voyager Templates
 <p>
 <a href="https://travis-ci.org/akazorg/voyager-templates"><img src="https://travis-ci.org/akazorg/voyager-templates.svg?branch=dev-master" alt="Build Status"></a>
+<a href="https://styleci.io/repos/94306815/shield?style=flat"><img src="https://styleci.io/repos/94306815/shield?style=flat" alt="Build Status"></a>
 <a href="https://packagist.org/packages/akazorg/voyager-templates"><img src="https://poser.pugx.org/akazorg/voyager-templates/downloads.svg?format=flat" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/akazorg/voyager-templates"><img src="https://poser.pugx.org/akazorg/voyager-templates/v/stable.svg?format=flat" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/akazorg/voyager-templates"><img src="https://poser.pugx.org/akazorg/voyager-templates/license.svg?format=flat" alt="License"></a>
