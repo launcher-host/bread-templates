@@ -10,9 +10,8 @@
         }
     ],
     "require": {
-        "tcg/voyager": ">=0.10.4",
-        "larapack/hooks": "*",
-        "larapack/voyager-hooks": "*"
+        "larapack/hooks": "dev-master",
+        "larapack/voyager-hooks": "dev-master"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0",
