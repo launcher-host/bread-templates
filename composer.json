@@ -1,5 +1,5 @@
 {
-    "name": "akazorg/voyager-templates",
+    "name": "voyager-templates",
     "description": "Create BREAD views based on templates",
     "keywords": ["laravel", "voyager", "hooks"],
     "license": "MIT",
