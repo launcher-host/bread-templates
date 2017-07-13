@@ -23,7 +23,6 @@
             "akazorg\\voyager-templates\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
     "extra": {
         "hook": {
               "providers": [
