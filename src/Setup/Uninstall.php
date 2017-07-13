@@ -1,6 +1,6 @@
 <?php
 
-namespace akazorg\VoyagerTemplates\Setup;
+namespace VoyagerTemplates\Setup;
 
 use Larapack\Hooks\Events\UninstallingHook;
 

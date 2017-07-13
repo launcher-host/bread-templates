@@ -1,6 +1,6 @@
 <?php
 
-use akazorg\VoyagerTemplates\Models\Template as VoyagerTemplate;
+use VoyagerTemplates\Models\Template as VoyagerTemplate;
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
@@ -24,6 +24,9 @@ class VoyagerTemplatesTableSeeder extends Seeder
         if (VoyagerTemplate::first()) {
             return;
         }
+
+        // FLush model events
+        VoyagerTemplate::flushEventListeners();
 
         $template = VoyagerTemplate::firstOrNew([
             'name' => 'Columns 8/4',
@@ -110,7 +113,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
             'display_name_singular' => 'Template',
             'display_name_plural'   => 'Templates',
             'icon'                  => 'voyager-news',
-            'model_name'            => 'akazorg\\VoyagerTemplates\\Models\\Template',
+            'model_name'            => 'VoyagerTemplates\\Models\\Template',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',

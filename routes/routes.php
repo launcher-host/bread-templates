@@ -11,7 +11,8 @@
 */
 
 Route::group(['as' => 'voyager.', 'middleware' => 'admin.user'], function () {
-    $hookController = '\\akazorg\\VoyagerTemplates\\Http\\Controllers\\VoyagerTemplatesController';
+    // $hookController = '\\VoyagerTemplates\\Http\\Controllers\\VoyagerTemplatesController';
+    $hookController = '\\'.config('voyager.controllers.namespace').'\\VoyagerBreadController';
 
     Route::resource('templates', $hookController);
 

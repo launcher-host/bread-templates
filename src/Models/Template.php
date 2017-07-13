@@ -1,8 +1,8 @@
 <?php
 
-namespace akazorg\VoyagerTemplates\Models;
+namespace VoyagerTemplates\Models;
 
-use akazorg\VoyagerTemplates\TemplatesManager;
+use VoyagerTemplates\TemplatesManager;
 use Illuminate\Database\Eloquent\Model;
 
 class Template extends Model

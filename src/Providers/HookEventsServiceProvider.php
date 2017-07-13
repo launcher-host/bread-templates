@@ -1,6 +1,6 @@
 <?php
 
-namespace akazorg\VoyagerTemplates\Providers;
+namespace VoyagerTemplates\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -20,10 +20,10 @@ class HookEventsServiceProvider extends ServiceProvider
             'Uninstall' => 'UninstallingHook',
         ] as $listener => $event) {
             $this->listen["Larapack\Hooks\Events\\$event"] = [
-                "akazorg\VoyagerTemplates\Setup\\$listener",
+                "VoyagerTemplates\Setup\\$listener",
             ];
         }
 
-        parent::boot();
+        // parent::boot();
     }
 }

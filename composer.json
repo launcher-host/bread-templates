@@ -15,18 +15,18 @@
     },
     "autoload": {
         "psr-4": {
-            "akazorg\\voyager-templates\\": "src/"
+            "voyager-templates\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "akazorg\\voyager-templates\\Tests\\": "tests/"
+            "voyager-templates\\Tests\\": "tests/"
         }
     },
     "extra": {
         "hook": {
               "providers": [
-                    "akazorg\\voyager-templates\\VoyagerTemplatesServiceProvider"
+                    "voyager-templates\\VoyagerTemplatesServiceProvider"
               ],
               "aliases": {
                     "Templates": "voyager-templates\\TestAlias"

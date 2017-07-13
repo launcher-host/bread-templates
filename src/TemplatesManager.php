@@ -1,8 +1,8 @@
 <?php
 
-namespace akazorg\VoyagerTemplates;
+namespace VoyagerTemplates;
 
-use akazorg\VoyagerTemplates\Models\Template;
+use VoyagerTemplates\Models\Template;
 use Illuminate\Support\Facades\File;
 use TCG\Voyager\Facades\Voyager;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace akazorg\VoyagerTemplates;
+namespace VoyagerTemplates;
 
-use akazorg\VoyagerTemplates\Providers\HookEventsServiceProvider;
+use VoyagerTemplates\Providers\HookEventsServiceProvider;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
@@ -18,11 +18,6 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->app->singleton('template', function (Container $app) {
-        //     return new TemplatesManager($app);
-        // });
-        // $this->app->alias('template', TemplatesManager::class);
-
         $this->app->register(HookEventsServiceProvider::class);
     }
 
@@ -58,7 +53,7 @@ class VoyagerTemplatesServiceProvider extends ServiceProvider
         // Install if table not found
         if (!Schema::hasTable('voyager_templates')) {
             Artisan::call('vendor:publish', [
-                '--provider' => 'akazorg\VoyagerTemplates\VoyagerTemplatesServiceProvider',
+                '--provider' => 'VoyagerTemplates\VoyagerTemplatesServiceProvider',
                 '--force'    => true,
             ]);
             Artisan::call('migrate');
