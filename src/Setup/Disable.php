@@ -15,6 +15,11 @@ class Disable
      */
     public function handle(DisablingHook $event)
     {
+        // Disable
+        // ----------------------------
+        // 1. Remove Menu, Permissions and BREAD rows
+        // 2. Optionally, Delete `templates` table
+        //
         dd('DisablingHook', $event);
     }
 }

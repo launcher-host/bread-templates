@@ -9,6 +9,8 @@
             "email": "bruno@torrinha.com"
         }
     ],
+    "require": {
+    },
     "require-dev": {
         "orchestra/testbench": "~3.0",
         "phpunit/phpunit": "^6.2|^5.6"
