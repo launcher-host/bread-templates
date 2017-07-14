@@ -14,16 +14,12 @@ class HookEventsServiceProvider extends ServiceProvider
     public function boot()
     {
         foreach ([
-            'Disable'   => 'DisablingHook',
-            'Enable'    => 'EnablingHook',
-            'Install'   => 'InstallingHook',
-            'Uninstall' => 'UninstallingHook',
+            'Disable' => 'DisablingHook',
+            'Enable'  => 'EnablingHook',
         ] as $listener => $event) {
             $this->listen["Larapack\Hooks\Events\\$event"] = [
                 "VoyagerTemplates\Setup\\$listener",
             ];
         }
-
-        // parent::boot();
     }
 }
