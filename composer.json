@@ -1,5 +1,5 @@
 {
-    "name": "LauncherHost/voyager-templates",
+    "name": "voyager-templates",
     "description": "Templating Voyager BREAD",
     "keywords": ["laravel", "voyager", "hooks"],
     "license": "MIT",
@@ -17,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LauncherHost\\voyager-templates\\": "src/"
+            "LauncherHost\\VoyagerTemplates\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LauncherHost\\voyager-templates\\Tests\\": "tests/"
+            "LauncherHost\\VoyagerTemplates\\Tests\\": "tests/"
         }
     },
     "extra": {
