@@ -37,7 +37,10 @@
                 "database/migrations"
             ],
             "seeders": [
-                "database/seeds"
+                "database/seeds/DatabaseSeeder"
+            ],
+            "unseeders": [
+                "database/unseeds/DatabaseUnseeder"
             ]
         }
     }
