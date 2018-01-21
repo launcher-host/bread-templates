@@ -27,12 +27,18 @@
     },
     "extra": {
         "hook": {
-              "providers": [
-                    "voyager-templates\\VoyagerTemplatesServiceProvider"
-              ],
-              "aliases": {
-                    "Templates": "voyager-templates\\TestAlias"
-              }
+            "providers": [
+                "VoyagerTemplates\\VoyagerTemplatesServiceProvider"
+            ],
+            "aliases": {
+                "VoyagerTemplates": "VoyagerTemplates\\VoyagerTemplatesFacade"
+            },
+            "migrations": [
+                "database/migrations"
+            ],
+            "seeders": [
+                "database/seeders"
+            ]
         }
     }
 }

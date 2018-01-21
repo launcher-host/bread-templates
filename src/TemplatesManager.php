@@ -48,7 +48,9 @@ class TemplatesManager
     protected function handle($view, &$name, &$params)
     {
         // Determine the method to call (read/addRows/editRows)
-        $method = ($view === 'read') ? 'readRows' : isset($params['dataTypeContent']->id) ? 'editRows' : 'addRows';
+        $method = ($view === 'read')
+            ? 'readRows'
+            : isset($params['dataTypeContent']->id) ? 'editRows' : 'addRows';
 
         // Load dataRows, it will be returned to the view
         $params['dataRows'] = $params['dataType']->{$method};
