@@ -37,7 +37,7 @@
                 "database/migrations"
             ],
             "seeders": [
-                "database/seeders"
+                "database/seeds"
             ]
         }
     }
