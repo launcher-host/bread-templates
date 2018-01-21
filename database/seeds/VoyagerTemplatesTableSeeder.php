@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use LauncherHost\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
-use LauncherHost\VoyagerTemplates\Models\Template as VoyagerTemplate;
 
 class VoyagerTemplatesTableSeeder extends Seeder
 {

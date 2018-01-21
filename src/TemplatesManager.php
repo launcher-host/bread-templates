@@ -3,8 +3,8 @@
 namespace LauncherHost\VoyagerTemplates;
 
 use Illuminate\Support\Facades\File;
-use TCG\Voyager\Facades\Voyager;
 use LauncherHost\VoyagerTemplates\Models\Template;
+use TCG\Voyager\Facades\Voyager;
 
 class TemplatesManager
 {
