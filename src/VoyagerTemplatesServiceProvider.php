@@ -1,6 +1,6 @@
 <?php
 
-namespace VoyagerTemplates;
+namespace LauncherHost\VoyagerTemplates;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;

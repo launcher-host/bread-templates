@@ -1,10 +1,10 @@
 <?php
 
-namespace VoyagerTemplates;
+namespace LauncherHost\VoyagerTemplates;
 
 use Illuminate\Support\Facades\File;
 use TCG\Voyager\Facades\Voyager;
-use VoyagerTemplates\Models\Template;
+use LauncherHost\VoyagerTemplates\Models\Template;
 
 class TemplatesManager
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace VoyagerTemplates;
+namespace LauncherHost\VoyagerTemplates;
 
 use Illuminate\Support\Facades\Facade;
 

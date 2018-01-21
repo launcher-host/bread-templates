@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
-use VoyagerTemplates\Models\Template as VoyagerTemplate;
+use LauncherHost\VoyagerTemplates\Models\Template as VoyagerTemplate;
 
 class VoyagerTemplatesTableSeeder extends Seeder
 {
