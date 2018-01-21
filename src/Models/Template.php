@@ -2,8 +2,8 @@
 
 namespace VoyagerTemplates\Models;
 
-use VoyagerTemplates\TemplatesManager;
 use Illuminate\Database\Eloquent\Model;
+use VoyagerTemplates\TemplatesManager;
 
 class Template extends Model
 {

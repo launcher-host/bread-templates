@@ -2,9 +2,9 @@
 
 namespace VoyagerTemplates;
 
-use VoyagerTemplates\Models\Template;
 use Illuminate\Support\Facades\File;
 use TCG\Voyager\Facades\Voyager;
+use VoyagerTemplates\Models\Template;
 
 class TemplatesManager
 {

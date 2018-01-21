@@ -2,9 +2,9 @@
 
 namespace VoyagerTemplates;
 
-use TCG\Voyager\Facades\Voyager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
+use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesServiceProvider extends ServiceProvider
 {
