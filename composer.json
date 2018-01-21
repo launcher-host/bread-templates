@@ -1,6 +1,6 @@
 {
     "name": "voyager-templates",
-    "description": "Create BREAD views based on templates",
+    "description": "Templating Voyager BREAD",
     "keywords": ["laravel", "voyager", "hooks"],
     "license": "MIT",
     "authors": [
