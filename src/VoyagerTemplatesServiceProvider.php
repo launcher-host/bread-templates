@@ -4,7 +4,6 @@ namespace VoyagerTemplates;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
-use TCG\Voyager\Facades\Voyager;
 
 class VoyagerTemplatesServiceProvider extends ServiceProvider
 {
