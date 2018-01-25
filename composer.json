@@ -37,10 +37,10 @@
                 "src/database/migrations"
             ],
             "seeders": [
-                "src/database/seeds/DatabaseSeeder"
+                "src/database/seeds/DatabaseSeeder.php"
             ],
             "unseeders": [
-                "src/database/unseeds/DatabaseUnseeder"
+                "src/database/unseeds/DatabaseUnseeder.php"
             ]
         }
     }
