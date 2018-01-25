@@ -1,5 +1,7 @@
 <?php
 
+namespace Launcher\VoyagerTemplates\database\unseeds;
+
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Permission;
 

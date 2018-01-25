@@ -1,9 +1,9 @@
 <?php
 
-namespace LauncherHost\VoyagerTemplates;
+namespace Launcher\VoyagerTemplates;
 
 use Illuminate\Support\Facades\File;
-use LauncherHost\VoyagerTemplates\Models\Template;
+use Launcher\VoyagerTemplates\Models\Template;
 use TCG\Voyager\Facades\Voyager;
 
 class TemplatesManager

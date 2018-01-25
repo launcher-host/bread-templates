@@ -1,6 +1,6 @@
 <?php
 
-namespace LauncherHost\VoyagerTemplates;
+namespace Launcher\VoyagerTemplates;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;

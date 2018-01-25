@@ -1,7 +1,7 @@
 {
-    "name": "voyager-templates",
-    "description": "Templating Voyager BREAD",
-    "keywords": ["laravel", "voyager", "hooks"],
+    "name": "bread-templates",
+    "description": "Templating BREAD Views",
+    "keywords": ["laravel", "voyager", "blade", "views", "templates", "hooks"],
     "license": "MIT",
     "authors": [
         {
@@ -17,30 +17,30 @@
     },
     "autoload": {
         "psr-4": {
-            "LauncherHost\\VoyagerTemplates\\": "src/"
+            "Launcher\\VoyagerTemplates\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LauncherHost\\VoyagerTemplates\\Tests\\": "tests/"
+            "Launcher\\VoyagerTemplates\\Tests\\": "tests/"
         }
     },
     "extra": {
         "hook": {
             "providers": [
-                "LauncherHost\\VoyagerTemplates\\VoyagerTemplatesServiceProvider"
+                "Launcher\\VoyagerTemplates\\VoyagerTemplatesServiceProvider"
             ],
             "aliases": {
-                "LauncherHost\\VoyagerTemplates": "LauncherHost\\VoyagerTemplates\\VoyagerTemplatesFacade"
+                "Launcher\\VoyagerTemplates": "Launcher\\VoyagerTemplates\\VoyagerTemplatesFacade"
             },
             "migrations": [
-                "database/migrations"
+                "src/database/migrations"
             ],
             "seeders": [
-                "database/seeds/DatabaseSeeder"
+                "src/database/seeds/DatabaseSeeder"
             ],
             "unseeders": [
-                "database/unseeds/DatabaseUnseeder"
+                "src/database/unseeds/DatabaseUnseeder"
             ]
         }
     }

@@ -1,7 +1,9 @@
 <?php
 
+namespace Launcher\VoyagerTemplates\database\seeds;
+
 use Illuminate\Database\Seeder;
-use LauncherHost\VoyagerTemplates\Models\Template as VoyagerTemplate;
+use Launcher\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 

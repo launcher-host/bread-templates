@@ -1,9 +1,9 @@
 <?php
 
-namespace LauncherHost\VoyagerTemplates\Models;
+namespace Launcher\VoyagerTemplates\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use LauncherHost\VoyagerTemplates\TemplatesManager;
+use Launcher\VoyagerTemplates\TemplatesManager;
 
 class Template extends Model
 {

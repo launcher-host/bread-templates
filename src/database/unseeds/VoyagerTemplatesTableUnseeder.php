@@ -1,7 +1,9 @@
 <?php
 
+namespace Launcher\VoyagerTemplates\database\unseeds;
+
 use Illuminate\Database\Seeder;
-use LauncherHost\VoyagerTemplates\Models\Template as VoyagerTemplate;
+use Launcher\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataType;
 
 class VoyagerTemplatesTableUnseeder extends Seeder

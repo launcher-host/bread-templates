@@ -1,5 +1,7 @@
 <?php
 
+namespace Launcher\VoyagerTemplates\database\seeds;
+
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Permission;
 use TCG\Voyager\Models\Role;
