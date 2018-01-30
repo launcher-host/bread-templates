@@ -1,11 +1,11 @@
 <?php
 
-namespace Launcher\VoyagerTemplates;
+namespace Launcher\BreadTemplates;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 
-class VoyagerTemplatesServiceProvider extends ServiceProvider
+class BreadTemplatesServiceProvider extends ServiceProvider
 {
     /**
      * Register bindings in the container.

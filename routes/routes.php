@@ -2,10 +2,10 @@
 
 /*
 |--------------------------------------------------------------------------
-| Voyager Template Routes
+| BREAD Template Routes
 |--------------------------------------------------------------------------
 |
-| This file is where we add VoyagerTemplates routes and may override any
+| This file is where we add BreadTemplates routes and may override any
 | of the Voyager.
 |
 */

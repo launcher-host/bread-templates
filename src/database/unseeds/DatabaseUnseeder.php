@@ -1,7 +1,5 @@
 <?php
 
-namespace Launcher\VoyagerTemplates\database\unseeds;
-
 use Illuminate\Database\Seeder;
 
 class DatabaseUnseeder extends Seeder
@@ -13,7 +11,7 @@ class DatabaseUnseeder extends Seeder
      */
     public function run()
     {
-        $this->seed('VoyagerTemplatesTableUnseeder');
+        $this->seed('BreadTemplatesTableUnseeder');
         $this->seed('MenuItemsTableUnseeder');
         $this->seed('PermissionsTableUnseeder');
         $this->seed('DataRowsTableUnseeder');

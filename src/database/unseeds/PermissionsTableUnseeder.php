@@ -1,7 +1,5 @@
 <?php
 
-namespace Launcher\VoyagerTemplates\database\unseeds;
-
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Permission;
 
@@ -14,6 +12,6 @@ class PermissionsTableUnseeder extends Seeder
      */
     public function run()
     {
-        Permission::removeFrom('voyager_templates');
+        Permission::removeFrom('bread_templates');
     }
 }

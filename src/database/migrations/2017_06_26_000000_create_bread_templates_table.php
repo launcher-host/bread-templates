@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVoyagerTemplatesTable extends Migration
+class CreateBreadTemplatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateVoyagerTemplatesTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('voyager_templates')) {
-            Schema::create('voyager_templates', function (Blueprint $table) {
+        if (!Schema::hasTable('bread_templates')) {
+            Schema::create('bread_templates', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name')->unique();
                 $table->string('slug')->unique();
@@ -31,6 +31,6 @@ class CreateVoyagerTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('voyager_templates');
+        Schema::drop('bread_templates');
     }
 }

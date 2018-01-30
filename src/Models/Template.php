@@ -1,13 +1,13 @@
 <?php
 
-namespace Launcher\VoyagerTemplates\Models;
+namespace Launcher\BreadTemplates\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Launcher\VoyagerTemplates\TemplatesManager;
+use Launcher\BreadTemplates\TemplatesManager;
 
 class Template extends Model
 {
-    protected $table = 'voyager_templates';
+    protected $table = 'bread_templates';
 
     protected $fillable = [
         'name',

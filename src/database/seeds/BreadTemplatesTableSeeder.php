@@ -1,13 +1,11 @@
 <?php
 
-namespace Launcher\VoyagerTemplates\database\seeds;
-
 use Illuminate\Database\Seeder;
-use Launcher\VoyagerTemplates\Models\Template as VoyagerTemplate;
+use Launcher\BreadTemplates\Models\Template as BreadTemplate;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 
-class VoyagerTemplatesTableSeeder extends Seeder
+class BreadTemplatesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,21 +14,21 @@ class VoyagerTemplatesTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->seedVoyagerTemplates();
+        $this->seedBreadTemplates();
         $this->seedBREAD();
     }
 
-    public function seedVoyagerTemplates()
+    public function seedBreadTemplates()
     {
         // Skip if already exists
-        if (VoyagerTemplate::first()) {
+        if (BreadTemplate::first()) {
             return;
         }
 
         // FLush model events
-        VoyagerTemplate::flushEventListeners();
+        BreadTemplate::flushEventListeners();
 
-        $template = VoyagerTemplate::firstOrNew([
+        $template = BreadTemplate::firstOrNew([
             'name' => 'Columns 8/4',
             'slug' => 'columns-8-4',
         ]);
@@ -55,7 +53,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
             ]),
         ])->save();
 
-        $template = VoyagerTemplate::firstOrNew([
+        $template = BreadTemplate::firstOrNew([
             'name' => 'Columns 6/6',
             'slug' => 'columns-6-6',
         ]);
@@ -72,7 +70,7 @@ class VoyagerTemplatesTableSeeder extends Seeder
             ]),
         ])->save();
 
-        $template = VoyagerTemplate::firstOrNew([
+        $template = BreadTemplate::firstOrNew([
             'name' => 'Columns 4/8',
             'slug' => 'columns-4-8',
         ]);
@@ -111,11 +109,11 @@ class VoyagerTemplatesTableSeeder extends Seeder
         $dataType = DataType::firstOrNew(['slug' => 'templates']);
 
         $dataType->fill([
-            'name'                  => 'voyager_templates',
+            'name'                  => 'bread_templates',
             'display_name_singular' => 'Template',
             'display_name_plural'   => 'Templates',
             'icon'                  => 'voyager-news',
-            'model_name'            => 'VoyagerTemplates\\Models\\Template',
+            'model_name'            => 'BreadTemplates\\Models\\Template',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',

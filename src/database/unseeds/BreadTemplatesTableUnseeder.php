@@ -1,15 +1,12 @@
 <?php
 
-namespace Launcher\VoyagerTemplates\database\unseeds;
-
 use Illuminate\Database\Seeder;
-use Launcher\VoyagerTemplates\Models\Template as VoyagerTemplate;
 use TCG\Voyager\Models\DataType;
 
-class VoyagerTemplatesTableUnseeder extends Seeder
+class BreadTemplatesTableUnseeder extends Seeder
 {
     /**
-     * Remove Voyager Templates data.
+     * Remove Bread Templates data.
      *
      * @return void
      */

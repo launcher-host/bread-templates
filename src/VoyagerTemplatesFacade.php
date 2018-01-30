@@ -1,10 +1,10 @@
 <?php
 
-namespace Launcher\VoyagerTemplates;
+namespace Launcher\BreadTemplates;
 
 use Illuminate\Support\Facades\Facade;
 
-class VoyagerTemplatesFacade extends Facade
+class BreadTemplatesFacade extends Facade
 {
     /**
      * Get the registered name of the component.

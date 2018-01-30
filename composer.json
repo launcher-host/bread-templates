@@ -1,7 +1,7 @@
 {
     "name": "bread-templates",
     "description": "Templating BREAD Views",
-    "keywords": ["laravel", "voyager", "blade", "views", "templates", "hooks"],
+    "keywords": ["laravel", "launcher", "voyager", "blade", "views", "templates", "hooks"],
     "license": "MIT",
     "authors": [
         {
@@ -17,21 +17,21 @@
     },
     "autoload": {
         "psr-4": {
-            "Launcher\\VoyagerTemplates\\": "src/"
+            "Launcher\\BreadTemplates\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Launcher\\VoyagerTemplates\\Tests\\": "tests/"
+            "Launcher\\BreadTemplates\\Tests\\": "tests/"
         }
     },
     "extra": {
         "hook": {
             "providers": [
-                "Launcher\\VoyagerTemplates\\VoyagerTemplatesServiceProvider"
+                "Launcher\\BreadTemplates\\BreadTemplatesServiceProvider"
             ],
             "aliases": {
-                "Launcher\\VoyagerTemplates": "Launcher\\VoyagerTemplates\\VoyagerTemplatesFacade"
+                "Launcher\\BreadTemplates": "Launcher\\BreadTemplates\\BreadTemplatesFacade"
             },
             "migrations": [
                 "src/database/migrations"
