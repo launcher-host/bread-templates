@@ -34,13 +34,13 @@
                 "Launcher\\BreadTemplates": "Launcher\\BreadTemplates\\BreadTemplatesFacade"
             },
             "migrations": [
-                "src/database/migrations"
+                "publishable/database/migrations"
             ],
             "seeders": [
-                "src/database/seeds/DatabaseSeeder.php"
+                "publishable/database/seeds/DatabaseSeeder.php"
             ],
             "unseeders": [
-                "src/database/unseeds/DatabaseUnseeder.php"
+                "publishable/database/unseeds/DatabaseUnseeder.php"
             ]
         }
     }
