@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Permission;
 
-class PermissionsTableUnseeder extends Seeder
+class BreadTemplatesPermissionsTableUnseeder extends Seeder
 {
     /**
      * Remove permissions data file.

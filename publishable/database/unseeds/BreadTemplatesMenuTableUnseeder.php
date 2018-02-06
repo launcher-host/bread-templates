@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 
-class MenuItemsTableUnseeder extends Seeder
+class BreadTemplatesMenuTableUnseeder extends Seeder
 {
     /**
      * Remove menu data.

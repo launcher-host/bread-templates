@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 
-class DataRowsTableUnseeder extends Seeder
+class BreadTemplatesDataRowsTableUnseeder extends Seeder
 {
     /**
      * Will remove template attributes from JSON field.

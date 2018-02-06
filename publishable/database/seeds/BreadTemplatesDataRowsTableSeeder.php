@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
 
-class DataRowsTableSeeder extends Seeder
+class BreadTemplatesDataRowsTableSeeder extends Seeder
 {
     /**
      * Will change Pages dataType in order to use templates.

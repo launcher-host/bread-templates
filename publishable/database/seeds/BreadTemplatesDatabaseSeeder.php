@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Traits\Seedable;
 
-class DatabaseSeeder extends Seeder
+class BreadTemplatesDatabaseSeeder extends Seeder
 {
     use Seedable;
 
@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->seed('BreadTemplatesTableSeeder');
-        $this->seed('MenuItemsTableSeeder');
-        $this->seed('PermissionsTableSeeder');
-        $this->seed('DataRowsTableSeeder');
+        $this->seed('BreadTemplatesMenuTableSeeder');
+        $this->seed('BreadTemplatesPermissionsTableSeeder');
+        $this->seed('BreadTemplatesDataRowsTableSeeder');
     }
 }

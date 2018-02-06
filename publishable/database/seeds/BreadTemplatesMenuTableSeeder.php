@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 
-class MenuItemsTableSeeder extends Seeder
+class BreadTemplatesMenuTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
