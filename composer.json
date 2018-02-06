@@ -37,10 +37,10 @@
                 "publishable/database/migrations"
             ],
             "seeders": [
-                "publishable/database/seeds/DatabaseSeeder.php"
+                "publishable/database/seeds/BreadTemplatesDatabaseSeeder.php"
             ],
             "unseeders": [
-                "publishable/database/unseeds/DatabaseUnseeder.php"
+                "publishable/database/unseeds/BreadTemplatesDatabaseUnseeder.php"
             ]
         }
     }
