@@ -113,7 +113,7 @@ class BreadTemplatesTableSeeder extends Seeder
             'display_name_singular' => 'Template',
             'display_name_plural'   => 'Templates',
             'icon'                  => 'voyager-news',
-            'model_name'            => 'BreadTemplates\\Models\\Template',
+            'model_name'            => 'Launcher\\BreadTemplates\\Models\\Template',
             'controller'            => '',
             'generate_permissions'  => 1,
             'description'           => '',
