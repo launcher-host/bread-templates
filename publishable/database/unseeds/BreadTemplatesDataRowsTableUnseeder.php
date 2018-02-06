@@ -13,7 +13,8 @@ class BreadTemplatesDataRowsTableUnseeder extends Seeder
     public function run()
     {
         // fetch all rows where JSON not empty
-        $rows = DataRow::whereNot('details', '');
+        $rows = DataRow::where('details', '<>', '')->get();
+
 
         // find every record for existence of Template attributes
         // and delete this key.
@@ -22,7 +23,7 @@ class BreadTemplatesDataRowsTableUnseeder extends Seeder
 
             // delete key if found
             if (isset($details->template)) {
-                unset($details['template']);
+                unset($details->template);
 
                 $row->details = json_encode($details);
 
